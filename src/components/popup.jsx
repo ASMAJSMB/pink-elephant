@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Draggable from "react-draggable";
 
 const PopupWrapper = styled.div`
-  background-color: white;
+  background-color: #dadada;
   border: 2px solid hotpink;
   box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
   position: relative;

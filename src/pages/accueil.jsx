@@ -6,6 +6,7 @@ import PlayButton from "../components/play-button";
 import Popup from "../components/popup";
 import pochette1 from "../assets/pochette1.png";
 import pochette2 from "../assets/pochette2.png";
+import smileyCursor from "../assets/Curseur.png";
 import pochette3 from "../assets/pochette3.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -25,6 +26,8 @@ const CursorWrapper = styled.div`
 `;
 
 const Logo = styled.img`
+ cursor: url(${smileyCursor}) 12 12, auto;
+
   position: fixed;
   top: 30px;
   left: 30px;
@@ -140,12 +143,17 @@ const FooterBar = styled.div`
   z-index: 998;
 `;
 
+const LogoLink = styled(Link)`
+  cursor: url("/src/assets/Curseur.png"), auto;
+`;
   return (
     <CursorWrapper>
       <Background />
-      <Link to="/">
+      <LogoLink to="/">
   <Logo src={logo} alt="Logo" />
-</Link>
+</LogoLink>
+
+
 
       <PlayButton />
 
