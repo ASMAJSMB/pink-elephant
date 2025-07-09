@@ -8,13 +8,13 @@ import Blog from "./pages/Blog";
 import Tournee from "./pages/Tournee";
 import ArcadeFire from "./pages/ArcadeFire";
 import Contact from "./pages/Contact";
-import Sidebar from "./components/Sidebar";
+
 
 
 function App() {
   return (
     <div className="App">
-      <Sidebar /> {/* ✅ Affiché partout */}
+      
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/pochette" element={<Pochette />} />

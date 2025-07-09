@@ -66,7 +66,7 @@ export default function PhotoPage() {
       <Link to="/">
         <StyledLogo src={logo} alt="Logo" />
       </Link>
-
+<Sidebar /> 
       <Banner>PHOTOS</Banner>
 
       <Popup

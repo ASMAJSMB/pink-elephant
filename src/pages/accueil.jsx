@@ -8,6 +8,7 @@ import pochette1 from "../assets/pochette1.png";
 import pochette2 from "../assets/pochette2.png";
 import smileyCursor from "../assets/Curseur.png";
 import pochette3 from "../assets/pochette3.png";
+import Sidebar from "../components/Sidebar";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaSpotify, FaXTwitter, FaYoutube } from "react-icons/fa6";
@@ -149,6 +150,8 @@ const LogoLink = styled(Link)`
   return (
     <CursorWrapper>
       <Background />
+      <Sidebar /> 
+
       <LogoLink to="/">
   <Logo src={logo} alt="Logo" />
 </LogoLink>
