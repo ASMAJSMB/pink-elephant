@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import { useDates } from '../features/dates/useDates';
 import bgImg from '../assets/fondtournee.png';
-import Footer from '../components/Footer'; // import du footer existant
+import Footer from '../components/Footer';
 
 const Container = styled.div`
   position: relative;
   min-height: 100vh;
   background: url(${bgImg}) center/cover no-repeat;
+
   &::before {
     content: '';
     position: absolute;
@@ -25,10 +26,19 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding: 80px 16px 16px;
+  }
 `;
 
 const Header = styled.header`
   margin-bottom: 24px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
 `;
 
 const Title = styled.h1`
@@ -38,6 +48,11 @@ const Title = styled.h1`
   display: inline-block;
   padding: 8px 16px;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 6px 12px;
+  }
 `;
 
 const Grid = styled.div`
@@ -46,6 +61,11 @@ const Grid = styled.div`
   gap: 24px;
   width: 100%;
   max-width: 960px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 `;
 
 const Card = styled.div`
@@ -57,6 +77,11 @@ const Card = styled.div`
   flex-direction: column;
   gap: 8px;
   width: 240px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 12px;
+  }
 `;
 
 const DateText = styled.div`
@@ -78,51 +103,53 @@ const StatusBadge = styled.span`
     statut === 'sold-out' ? '#d32f2f'
   : statut === 'annulé'   ? '#757575'
   :                          '#388e3c'};
+
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
 `;
 
 export default function Tournee() {
   const { dates, loading } = useDates();
 
-  if (loading) {
-    return (
-      <Container>
-        <Sidebar />
-        <Main>
-          <Header><Title>TOURNÉE</Title></Header>
-          <p style={{ color: '#fff' }}>Chargement…</p>
-        </Main>
-        <Footer />
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <Sidebar />
       <Main>
-        <Header><Title>TOURNÉE</Title></Header>
-        <Grid>
-          {dates.map((d) => {
-            const dt = new Date(d.date.seconds * 1000);
-            const day   = String(dt.getDate()).padStart(2, '0');
-            const month = String(dt.getMonth()+1).padStart(2, '0');
-            const year  = dt.getFullYear();
-            const dateStr = `${day}/${month}/${year}`;
+        <Header>
+          <Title>TOURNÉE</Title>
+        </Header>
 
-            return (
-              <Card key={d.id}>
-                <DateText>{dateStr}</DateText>
-                <InfoText><strong>Lieu :</strong> {d.lieu}</InfoText>
-                <InfoText><strong>Ville :</strong> {d.ville}</InfoText>
-                <StatusBadge statut={d.statut}>
-                  {d.statut === 'sold-out' ? 'Sold Out'
-                   : d.statut === 'annulé'   ? 'Annulé'
-                   :                            'À venir'}
-                </StatusBadge>
-              </Card>
-            );
-          })}
-        </Grid>
+        {loading ? (
+          <p style={{ color: '#fff' }}>Chargement…</p>
+        ) : (
+          <Grid>
+            {dates.map((d) => {
+              const dt = new Date(d.date.seconds * 1000);
+              const day   = String(dt.getDate()).padStart(2, '0');
+              const month = String(dt.getMonth()+1).padStart(2, '0');
+              const year  = dt.getFullYear();
+              const dateStr = `${day}/${month}/${year}`;
+
+              return (
+                <Card key={d.id}>
+                  <DateText>{dateStr}</DateText>
+                  <InfoText><strong>Lieu :</strong> {d.lieu}</InfoText>
+                  <InfoText><strong>Ville :</strong> {d.ville}</InfoText>
+                  <StatusBadge statut={d.statut}>
+                    {d.statut === 'sold-out'
+                      ? 'Sold Out'
+                      : d.statut === 'annulé'
+                      ? 'Annulé'
+                      : 'À venir'}
+                  </StatusBadge>
+                </Card>
+              );
+            })}
+          </Grid>
+        )}
+
         <Footer />
       </Main>
     </Container>
