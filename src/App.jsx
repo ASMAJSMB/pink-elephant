@@ -6,7 +6,6 @@ import Photos from "./pages/Photos";
 import Tracklist from "./pages/Tracklist";
 import Blog from "./pages/Blog";
 import Tournee from "./pages/Tournee";
-import ArcadeFire from "./pages/ArcadeFire";
 import Contact from "./pages/Contact";
 
 
@@ -22,7 +21,6 @@ function App() {
           <Route path="/tracklist" element={<Tracklist />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/tournee" element={<Tournee />} />
-          <Route path="/arcadefire" element={<ArcadeFire />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       

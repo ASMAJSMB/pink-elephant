@@ -37,7 +37,6 @@ export default function Sidebar() {
       <NavItem to="/tracklist">Tracklist</NavItem>
       <NavItem to="/blog">Blog</NavItem>
       <NavItem to="/tournee">Tournée</NavItem>
-      <NavItem to="/arcadefire">Arcade Fire</NavItem>
       <NavItem to="/contact">Contact</NavItem>
     </SidebarWrapper>
   );

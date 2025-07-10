@@ -4,7 +4,14 @@ import Sidebar from "../components/Sidebar";
 import Popup from '../components/popup';
 import Footer from '../components/Footer';
 import affiche from "../assets/AFFICHE.png";
-import logo from '../assets/logonoir.png';
+import pochette1 from "../assets/tourneee.png";
+import pochette2 from "../assets/photoblog.png";
+import pochette3 from "../assets/photobloggg.png";
+import pochette4 from "../assets/vinyle1.png";
+import pochette5 from "../assets/vinyle2.png";
+
+
+import logo from '../assets/logonoirr.svg';
 import backgroundPhoto from '../assets/fond-blanc.png';
 
 
@@ -67,8 +74,23 @@ const CarouselContainer = styled.div`
   display: flex;
   overflow-x: auto;
   gap: 40px;
-  padding: 500px 60px 60px;
+  padding: 500px 90px 100px 100PX;
   scroll-snap-type: x mandatory;
+ justify-content: flex-start;
+  align-items: flex-start;
+`;
+const FeaturedClipCard = styled(ClipCard)`
+  width: 500px;
+
+  ${YoutubeFrame} {
+    height: 280px;
+  }
+
+  ${ClipText} {
+    font-size: 16px;
+    font-weight: bold;
+     font-family: 'Playfair Display', serif;
+  }
 `;
 
 
@@ -121,55 +143,32 @@ export default function BlogPage() {
 
       <CarouselContainer>
   <ClipCard>
-    <YoutubeFrame
-      src="https://www.youtube.com/embed/Xck-BHc-g-s"
-      title="Créer un clip avec l'IA"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-    <ClipText>Créer un clip vidéo avec l'IA — de la musique aux images</ClipText>
+    <ClipImage src={pochette2} alt="Affiche concert" />
+    <ClipText>Le clip vidéo qui annonce la sortie de l’album Pink elephant.</ClipText>
   </ClipCard>
 
   <ClipCard>
-    <YoutubeFrame
-      src="https://www.youtube.com/embed/_eUYB7M4EDE"
-      title="Charlotte Cardin - Feel Good"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-    <ClipText>Charlotte Cardin - Feel Good [Clip officiel]</ClipText>
+    <ClipImage src={pochette1} alt="Studio" />
+    <ClipText>Préparez-vous pour le
+dernière album en date du groupe Arcade Fire.</ClipText>
   </ClipCard>
 
   <ClipCard>
-    <YoutubeFrame
-      src="https://www.youtube.com/embed/Xjws8nS606Q"
-      title="Dr. Yaro - Minimum ça"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-    <ClipText>Dr. Yaro - Minimum ça (Clip Officiel)</ClipText>
+    <ClipImage src={pochette3} alt="Coulisses" />
+    <ClipText>Arcade Fire annonce une tournée octobre 2025 pour la sortie de l’album “Pink Elephant”.</ClipText>
   </ClipCard>
 
   <ClipCard>
-    <YoutubeFrame
-      src="https://www.youtube.com/embed/01bWOVQgpQI"
-      title="Stéphane - Ma chérie"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-    <ClipText>Stéphane - Ma chérie (Clip officiel)</ClipText>
+    <ClipImage src={pochette4} alt="Fan Art" />
+    <ClipText>Pour la sortie mondiale de l’album “Pink Elephant” découvrez la pochette vinyle de ce dernier.</ClipText>
   </ClipCard>
 
   <ClipCard>
-    <YoutubeFrame
-      src="https://www.youtube.com/embed/1943hnaZoYg"
-      title="L2B - Pélican"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-    <ClipText>L2B - Pélican (Clip Officiel)</ClipText>
+    <ClipImage src={pochette5}  alt="Teaser" />
+    <ClipText>Avec la sortie internationale de l’album “Pink Elephant” sort également un T-Shirt à l’effigie du triste éléphant.</ClipText>
   </ClipCard>
 </CarouselContainer>
+
 
 
       <Footer />
